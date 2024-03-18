@@ -102,8 +102,6 @@ ipcMain.on('start-dragging', (_event, initialOffsetX, initialOffsetY) => {
 
 ipcMain.on('dragging', (_event, screenX, screenY) => {
     if (isDragging) {
-        console.log('Dragging: ', screenX + offsetX, screenY + offsetY);
-        console.log('cp:', mainWindow.getPosition());
         mainWindow.setPosition(screenX + offsetX, screenY + offsetY, true);
     }
 });
