@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release
         with:
           release-type: node
       - uses: actions/checkout@v3
-        # only if ${{ steps.release.outputs.release_created }} :
-      - name: Use Node.js 16.x
+      - name: Use Node.js 21.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 21.x
           cache: 'npm'
       - name: Install dependencies
         if: ${{ steps.release.outputs.release_created }}
@@ -34,6 +34,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
         run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nighwave-plaza_${{ steps.release.outputs.tag_name }}_linux.AppImage
-        # end if
-
-
