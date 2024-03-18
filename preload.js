@@ -60,11 +60,11 @@ async function syncHeight() {
         ipcRenderer.send('height', height);
     }
     i();
-    setInterval(i, 500)
+    setInterval(i, 20)
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    setTimeout(syncHeight, 1000);
+    syncHeight();
     minimizeButton();
     drag();
 })
