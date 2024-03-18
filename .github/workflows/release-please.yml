@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
+      - uses: actions/checkout@v3
+        # only if ${{ steps.release.outputs.release_created }} :
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm install
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm run build --if-present
+      - name: Upload Release Artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nighwave-plaza_${{ steps.release.outputs.tag_name }}_linux.AppImage
+        # end if
+
+

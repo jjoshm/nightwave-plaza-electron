@@ -38,7 +38,7 @@ app.whenReady().then(async () => {
         });
 
     // Create a system tray icon
-    tray = new Tray(path.join(__dirname, 'favicon.png'));
+    tray = new Tray(path.join(__dirname, 'icon.png'));
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Play/Pause',
