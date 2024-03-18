@@ -1,4 +1,4 @@
-const { app, globalShortcut, BrowserWindow, session, ipcMain, Tray, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -37,7 +37,6 @@ app.whenReady().then(async () => {
             mainWindow.webContents.insertCSS(data);
         });
 
-    // Create a system tray icon
     tray = new Tray(path.join(__dirname, 'icon.png'));
     const contextMenu = Menu.buildFromTemplate([
         {
