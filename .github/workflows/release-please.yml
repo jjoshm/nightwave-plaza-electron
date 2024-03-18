@@ -36,7 +36,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nightwave-plaza_electron_${{ steps.release.outputs.tag_name }}_linux.AppImage
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nightwave-plaza-electron_${{ steps.release.outputs.tag_name }}_linux.AppImage
 
   windows:
     name: windows
@@ -58,4 +58,4 @@ jobs:
       - name: Upload Release Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nightwave-plaza_electron_${{ needs.release-please.outputs.tag_name }}_windows.exe
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nightwave-plaza-electron_${{ needs.release-please.outputs.tag_name }}_windows.exe
