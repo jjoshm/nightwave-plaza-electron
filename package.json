@@ -1,6 +1,6 @@
 {
     "name": "nightwave-plaza-electron",
-    "version": "0.1.0-alpha",
+    "version": "0.1.1-alpha",
     "description": "Nighwave Plaza App",
     "main": "main.js",
     "scripts": {
