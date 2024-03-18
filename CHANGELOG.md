@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.2.1-alpha...v0.2.2-alpha) (2024-03-18)
+
+
+### Bug Fixes
+
+* worflow artefact path ([0f46a13](https://github.com/jjoshm/nightwave-plaza-electron/commit/0f46a13a57af993f1269c4f1e0e295880f8604ca))
+
 ## [0.2.1-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.2.0-alpha...v0.2.1-alpha) (2024-03-18)
 
 
