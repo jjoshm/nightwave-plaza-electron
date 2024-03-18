@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.1.2-alpha...v0.2.0-alpha) (2024-03-18)
+
+
+### Features
+
+* change tooltip name ([4080d73](https://github.com/jjoshm/nightwave-plaza-electron/commit/4080d7388f6b87fbb71152d26fb1ac2937da9f83))
+
 ## [0.1.2-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.1.1-alpha...v0.1.2-alpha) (2024-03-18)
 
 
