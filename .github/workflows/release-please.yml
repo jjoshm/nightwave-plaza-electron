@@ -12,6 +12,8 @@ name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: google-github-actions/release-please-action@v4
         id: release
@@ -34,3 +36,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
         run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nighwave-plaza_${{ steps.release.outputs.tag_name }}_linux.AppImage
+
+  windows:
+    name: windows
+    needs: release-please
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 21.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.x
+          cache: 'npm'
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm install
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm run build --if-present
+      - name: Upload Release Artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nighwave-plaza_${{ needs.release-please.outputs.tag_name }}_windows.exe

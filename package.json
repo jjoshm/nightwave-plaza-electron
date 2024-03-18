@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "electron .",
-        "build": "electron-builder --publish never"
+        "build": "electron-builder --publish never",
+        "build-windows": "electron-builder --publish never"
     },
     "author": "jjoshm",
     "devDependencies": {
@@ -14,14 +15,20 @@
         "electron-builder": "^24.13.3"
     },
     "build": {
-        "asar": false,
+        "asar": true,
         "linux": {
             "target": [
                 "zip",
                 "AppImage"
             ],
-            "category": "Games",
+            "category": "Music",
             "artifactName": "${name}_${version}_linux.${ext}"
+        },
+        "win": {
+            "target": [
+                "portable"
+            ],
+            "artifactName": "${name}_${version}_windows.${ext}"
         },
         "extraFiles": [
             "com.github.jjoshm.${name}.desktop"
