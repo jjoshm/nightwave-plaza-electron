@@ -22,13 +22,13 @@
                 "AppImage"
             ],
             "category": "Music",
-            "artifactName": "${name}_${version}_linux.${ext}"
+            "artifactName": "${name}_v${version}_linux.${ext}"
         },
         "win": {
             "target": [
                 "portable"
             ],
-            "artifactName": "${name}_${version}_windows.${ext}"
+            "artifactName": "${name}_v${version}_windows.${ext}"
         },
         "extraFiles": [
             "com.github.jjoshm.${name}.desktop"
