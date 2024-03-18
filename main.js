@@ -79,9 +79,7 @@ ipcMain.on('mini', () => {
 });
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    app.quit();
 });
 
 app.on('activate', () => {
@@ -114,4 +112,8 @@ ipcMain.on('height', (_event, height) => {
     mainWindow.setResizable(true);
     mainWindow.setSize(WIDTH, height);
     mainWindow.setResizable(false);
+});
+
+ipcMain.on('close', (_event) => {
+    app.quit();
 });

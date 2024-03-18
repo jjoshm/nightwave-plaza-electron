@@ -63,9 +63,22 @@ async function syncHeight() {
     setInterval(i, 20)
 }
 
+
+async function closeButton() {
+    const target = await waitForElm(".noselect.button-minimize");
+    const buttonContainer = document.createElement('div');
+    buttonContainer.innerHTML = '<button ontouchstart="" class="noselect button-close"><span></span></button>';
+    const button = buttonContainer.firstChild;
+    button.addEventListener("click", () => {
+        ipcRenderer.send('close');
+    });
+    target.parentNode.appendChild(button);
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
+    closeButton();
     syncHeight();
     minimizeButton();
     drag();
-})
+}, { once: true })
 
