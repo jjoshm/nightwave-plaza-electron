@@ -1,19 +1,38 @@
 {
-  "name": "nighwave-plaza-electron",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^29.1.4"
-  },
-  "files": [
-      "./styles.css",
-      "./preload.js"
-  ]
+    "name": "nightwave-plaza-electron",
+    "version": "0.1.0-alpha",
+    "description": "Nighwave Plaza App",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "electron .",
+        "build": "electron-builder --publish never"
+    },
+    "author": "jjoshm",
+    "devDependencies": {
+        "electron": "^29.1.4",
+        "electron-builder": "^24.13.3"
+    },
+    "build": {
+        "asar": false,
+        "linux": {
+            "target": [
+                "zip",
+                "AppImage"
+            ],
+            "category": "Games",
+            "artifactName": "${name}_${version}_linux.${ext}"
+        },
+        "extraFiles": [
+            "com.github.jjoshm.${name}.desktop"
+        ]
+    },
+    "repository": "https://github.com/jjoshm/nightwave-plaza-electron",
+    "keywords": [
+        "Electron",
+        "gfn",
+        "geforcenow",
+        "geforce-now"
+    ],
+    "license": "GPL-3.0"
 }

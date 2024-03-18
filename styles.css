@@ -1,3 +1,6 @@
+body .window-news {
+}
+
 #window-player > div > div > div > div.content.p-1.p-sm-2 > div > div.col-12.col-sm > div > div.row.my-1.my-sm-2.py-1.no-gutters.noselect > div.col.col-md-5.d-none.d-md-block {
     display: block !important;
 }

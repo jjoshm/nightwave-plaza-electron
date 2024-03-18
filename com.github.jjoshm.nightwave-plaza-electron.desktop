@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nightwave Plaza
+Type=Application
+Exec=/opt/nighwave-plaze-electron/nighwave-plaze-electron
+Icon=nvidia
+StartupWMClass=nighwave plaza
+Categories=Music;
+Keywords=Music;Radio;PLAZA;NIGHTWAVE;
