@@ -1,7 +1,7 @@
 {
     "name": "nightwave-plaza-electron",
     "version": "0.1.2-alpha",
-    "description": "Nighwave Plaza App",
+    "description": "Nightwave Plaza App",
     "main": "main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

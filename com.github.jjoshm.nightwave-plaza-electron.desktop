@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Name=Nightwave Plaza
 Type=Application
-Exec=/opt/nighwave-plaze-electron/nighwave-plaze-electron
+Exec=/opt/nightwave-plaze-electron/nightwave-plaze-electron
 Icon=nvidia
-StartupWMClass=nighwave plaza
+StartupWMClass=nightwave plaza
 Categories=Music;
 Keywords=Music;Radio;PLAZA;NIGHTWAVE;
