@@ -58,7 +58,7 @@ app.whenReady().then(async () => {
             }
         }
     ]);
-    tray.setToolTip('plaza.one');
+    tray.setToolTip('Nightwave Plaza');
     tray.setContextMenu(contextMenu);
 
     tray.on('click', () => {
