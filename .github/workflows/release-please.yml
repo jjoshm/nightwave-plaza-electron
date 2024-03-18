@@ -58,4 +58,4 @@ jobs:
       - name: Upload Release Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/nightwave-plaza-electron_${{ needs.release-please.outputs.tag_name }}_windows.exe
+        run: gh release upload ${{ needs.release-please.outputs.tag_name }} ./dist/nightwave-plaza-electron_${{ needs.release-please.outputs.tag_name }}_windows.exe
