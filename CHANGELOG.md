@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.2.3-alpha...v0.3.0-alpha) (2024-03-18)
+
+
+### Features
+
+* close button ([2234f93](https://github.com/jjoshm/nightwave-plaza-electron/commit/2234f93b5390ab9b28118393e3fef275fb0c38a1))
+
 ## [0.2.3-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.2.2-alpha...v0.2.3-alpha) (2024-03-18)
 
 
