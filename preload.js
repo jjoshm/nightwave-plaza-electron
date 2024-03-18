@@ -38,7 +38,6 @@ async function minimizeButton() {
 
 async function drag() {
     const draggableElement = await waitForElm('#window-player .header.header-draggable.noselect');
-    console.log("here", draggableElement);
     draggableElement.addEventListener('mousedown', (event) => {
         const bounds = draggableElement.getBoundingClientRect();
         ipcRenderer.send('start-dragging', bounds.left, bounds.top);
@@ -53,7 +52,19 @@ async function drag() {
     });
 }
 
+
+async function syncHeight() {
+    const elem = await waitForElm("#window-player");
+    function i() {
+        const height = elem.clientHeight;
+        ipcRenderer.send('height', height);
+    }
+    i();
+    setInterval(i, 500)
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
+    setTimeout(syncHeight, 1000);
     minimizeButton();
     drag();
 })

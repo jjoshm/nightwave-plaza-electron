@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^29.1.4"
-  }
+  },
+  "files": [
+      "./styles.css",
+      "./preload.js"
+  ]
 }

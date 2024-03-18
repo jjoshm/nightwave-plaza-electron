@@ -8,12 +8,14 @@ const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, li
 let mainWindow;
 let tray;
 
+const WIDTH = 444;
+
 app.whenReady().then(async () => {
     mainWindow = new BrowserWindow({
         fullscreenable: false,
         alwaysOnTop: true,
-        width: 444,
-        height: 203,
+        width: WIDTH,
+        height: 200,
         resizable: false,
         frame: false,
 
@@ -26,13 +28,14 @@ app.whenReady().then(async () => {
 
     mainWindow.loadURL(homePage);
 
-    fs.readFile('./styles.css', 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading CSS file:', err);
-            return;
-        }
-        mainWindow.webContents.insertCSS(data);
-    });
+    fs.readFile(path.join(__dirname, 'styles.css')
+        , 'utf8', (err, data) => {
+            if (err) {
+                console.error('Error reading CSS file:', err);
+                return;
+            }
+            mainWindow.webContents.insertCSS(data);
+        });
 
     // Create a system tray icon
     tray = new Tray(path.join(__dirname, 'favicon.png'));
@@ -108,4 +111,10 @@ ipcMain.on('dragging', (_event, screenX, screenY) => {
 
 ipcMain.on('stop-dragging', () => {
     isDragging = false;
+});
+
+ipcMain.on('height', (_event, height) => {
+    mainWindow.setResizable(true);
+    mainWindow.setSize(WIDTH, height);
+    mainWindow.setResizable(false);
 });
