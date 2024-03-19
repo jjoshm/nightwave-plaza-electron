@@ -9,5 +9,6 @@ electron wrapper for https://plaza.one/
 - tray menu
 
 # Todo
+- improve window dragging 
 - better menus (login, settings)
 - discord rich presence
