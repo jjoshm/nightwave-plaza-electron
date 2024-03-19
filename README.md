@@ -8,8 +8,8 @@ electron wrapper for https://plaza.one/
 # Supported
 - minimize to tray
 - tray menu
+- discord rich presence
 
 # Todo
 - improve window dragging 
 - better menus (login, settings)
-- discord rich presence
