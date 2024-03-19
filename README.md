@@ -2,7 +2,8 @@
 
 electron wrapper for https://plaza.one/
 
-![image](https://github.com/jjoshm/nightwave-plaza-electron/assets/39901876/9c79e340-b171-4ab3-98b2-8d494c9d3544)
+![image](https://github.com/jjoshm/nightwave-plaza-electron/assets/39901876/c2a69fbe-4647-4f47-a115-f79737b0c28a)
+
 
 # Supported
 - minimize to tray
