@@ -28,16 +28,16 @@ ipcRenderer.on("pp", () => {
 
 async function minimizeButton() {
     const elem = await waitForElm(".noselect.button-minimize");
-    clone = elem.cloneNode(true);
+    discordButton = elem.cloneNode(true);
 
-    clone.addEventListener("click", () => {
+    discordButton.addEventListener("click", () => {
         ipcRenderer.send('mini');
     });
-    elem.parentNode.replaceChild(clone, elem);
+    elem.parentNode.replaceChild(discordButton, elem);
 }
 
 async function drag() {
-    const draggableElement = await waitForElm('#window-player .header.header-draggable.noselect');
+    const draggableElement = await waitForElm('#window-player .row.no-gutters .row.no-gutters div:nth-child(2) .col-6 button');
     draggableElement.addEventListener('mousedown', (event) => {
         const bounds = draggableElement.getBoundingClientRect();
         ipcRenderer.send('start-dragging', bounds.left, bounds.top);
@@ -75,10 +75,62 @@ async function closeButton() {
     target.parentNode.appendChild(button);
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
+async function init() {
+    const target = await waitForElm("#window-player > div > div > div > div.content.p-1.p-sm-2 > div > div.col-12.col-sm > div > div:nth-child(4) > div.col-6.col-md-5 > div > div:nth-child(2) > button");
+    let discordButton = document.createElement("button");
+    discordButton.classList.add("noselect", "d-block", "discordButton")
+    let icon = document.createElement("i");
+    icon.classList.add("i", "icon-cog", "mr-0");
+    discordButton.appendChild(icon);
+    discordButton.dataset.enabled = "false";
+    discordButton.addEventListener("click", async (event) => {
+        console.log("here", event.currentTarget.dataset.enabled)
+        if (event.currentTarget.dataset.enabled == "true") {
+            ipcRenderer.send("discordEnabled", false);
+        } else {
+            ipcRenderer.send("discordEnabled", true);
+            let data = await playing();
+            setTimeout(() => { ipcRenderer.send("playing", data) }, 2000);
+        }
+    });
+    target.parentNode.appendChild(discordButton);
+}
+
+ipcRenderer.on("state", async (_event, data) => {
+    const discordButton = await waitForElm(".discordButton");
+    console.log("state in preload", data);
+    discordButton.classList.add(data.discordEnabled ? 'on' : 'off');
+    discordButton.classList.remove(data.discordEnabled ? 'off' : 'on');
+    discordButton.dataset.enabled = data.discordEnabled ? "true" : "false";
+});
+
+async function playing() {
+    const artistElem = await waitForElm(".player-artist.track-artist");
+    const titleElem = await waitForElm(".player-title.track-title");
+    return { artist: artistElem.innerText, title: titleElem.innerText }
+}
+
+async function syncPlaying() {
+    const titleElem = await waitForElm(".player-title.track-title");
+
+    const observer = new MutationObserver(async () => {
+        const data = await playing()
+        ipcRenderer.send("playing", data);
+    });
+
+    observer.observe(titleElem, {
+        characterData: true,
+        childList: true
+    });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await init();
+
     closeButton();
     syncHeight();
-    minimizeButton();
     drag();
+    minimizeButton();
+    syncPlaying();
 }, { once: true })
 

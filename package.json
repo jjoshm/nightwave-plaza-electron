@@ -41,5 +41,9 @@
         "geforcenow",
         "geforce-now"
     ],
-    "license": "GPL-3.0"
+    "license": "GPL-3.0",
+    "dependencies": {
+        "discord-rich-presence": "^0.0.8",
+        "electron-json-storage": "^4.6.0"
+    }
 }
