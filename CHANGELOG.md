@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.4.1-alpha...v0.4.2-alpha) (2024-03-19)
+
+
+### Bug Fixes
+
+* window size ([507eae9](https://github.com/jjoshm/nightwave-plaza-electron/commit/507eae90db66940fce07926778d3b8131eae476f))
+
 ## [0.4.1-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.4.0-alpha...v0.4.1-alpha) (2024-03-19)
 
 
