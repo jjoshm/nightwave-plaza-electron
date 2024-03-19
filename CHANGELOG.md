@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.3.0-alpha...v0.4.0-alpha) (2024-03-19)
+
+
+### Features
+
+* discord ([37a7ea6](https://github.com/jjoshm/nightwave-plaza-electron/commit/37a7ea6949b2034fb4ac8aaa23a0693178ee726a))
+
+
+### Bug Fixes
+
+* height ([cf7a8d3](https://github.com/jjoshm/nightwave-plaza-electron/commit/cf7a8d3c3621c0cc553a0549738e8f490a2a04a8))
+
 ## [0.3.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.2.3-alpha...v0.3.0-alpha) (2024-03-18)
 
 
