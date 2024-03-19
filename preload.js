@@ -37,7 +37,7 @@ async function minimizeButton() {
 }
 
 async function drag() {
-    const draggableElement = await waitForElm('#window-player .row.no-gutters .row.no-gutters div:nth-child(2) .col-6 button');
+    const draggableElement = await waitForElm('#window-player .header.header-draggable.noselect');
     draggableElement.addEventListener('mousedown', (event) => {
         const bounds = draggableElement.getBoundingClientRect();
         ipcRenderer.send('start-dragging', bounds.left, bounds.top);

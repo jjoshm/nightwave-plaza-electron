@@ -44,7 +44,7 @@ app.whenReady().then(async () => {
         alwaysOnTop: true,
         width: WIDTH,
         height: 200,
-        resizable: false,
+        //resizable: false,
         frame: false,
 
         webPreferences: {
@@ -142,24 +142,27 @@ let offsetY;
 let isDragging = false;
 
 ipcMain.on('start-dragging', (_event, initialOffsetX, initialOffsetY) => {
+    console.log("drag start")
     isDragging = true;
     offsetX = initialOffsetX;
     offsetY = initialOffsetY;
 });
 
 ipcMain.on('dragging', (_event, screenX, screenY) => {
+    console.log("drag")
     if (isDragging) {
         mainWindow.setPosition(screenX + offsetX, screenY + offsetY, true);
     }
 });
 
 ipcMain.on('stop-dragging', () => {
+    console.log("drag stop")
     isDragging = false;
 });
 
 ipcMain.on('height', (_event, height) => {
     mainWindow.setResizable(true);
-    mainWindow.setSize(WIDTH, height);
+    //mainWindow.setSize(WIDTH, height);
     mainWindow.setResizable(false);
 });
 
