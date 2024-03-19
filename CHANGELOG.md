@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.4.0-alpha...v0.4.1-alpha) (2024-03-19)
+
+
+### Bug Fixes
+
+* window drag ([48f27ba](https://github.com/jjoshm/nightwave-plaza-electron/commit/48f27bab1a4d514fe5294d5e568a59a1e7f4a1f6))
+
 ## [0.4.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.3.0-alpha...v0.4.0-alpha) (2024-03-19)
 
 
