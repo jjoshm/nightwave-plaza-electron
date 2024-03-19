@@ -44,7 +44,7 @@ app.whenReady().then(async () => {
         alwaysOnTop: true,
         width: WIDTH,
         height: 200,
-        //resizable: false,
+        resizable: false,
         frame: false,
 
         webPreferences: {
@@ -162,7 +162,7 @@ ipcMain.on('stop-dragging', () => {
 
 ipcMain.on('height', (_event, height) => {
     mainWindow.setResizable(true);
-    //mainWindow.setSize(WIDTH, height);
+    mainWindow.setSize(WIDTH, height);
     mainWindow.setResizable(false);
 });
 
