@@ -11,6 +11,7 @@ let tray;
 
 const WIDTH = 444;
 
+
 storage.has('nighwaveplazastate', function(error, hasKey) {
     if (error) throw error;
     if (!hasKey) {
@@ -146,10 +147,10 @@ ipcMain.on('start-dragging', (_event, initialOffsetX, initialOffsetY) => {
     isDragging = true;
     offsetX = initialOffsetX;
     offsetY = initialOffsetY;
+    console.log(initialOffsetX, initialOffsetY)
 });
 
 ipcMain.on('dragging', (_event, screenX, screenY) => {
-    console.log("drag")
     if (isDragging) {
         mainWindow.setPosition(screenX + offsetX, screenY + offsetY, true);
     }
