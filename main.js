@@ -152,7 +152,7 @@ ipcMain.on('start-dragging', (_event, initialOffsetX, initialOffsetY) => {
 
 ipcMain.on('dragging', (_event, screenX, screenY) => {
     if (isDragging) {
-        mainWindow.setPosition(screenX + offsetX, screenY + offsetY, true);
+        mainWindow.setPosition(screenX - offsetX, screenY - offsetY, true);
     }
 });
 
