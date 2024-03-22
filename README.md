@@ -11,5 +11,5 @@ electron wrapper for https://plaza.one/
 - discord rich presence
 
 # Todo
-- improve window dragging 
 - better menus (login, settings)
+- more layouts
