@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.4.2-alpha...v0.5.0-alpha) (2024-03-22)
+
+
+### Features
+
+* better dragging ([b99b4e6](https://github.com/jjoshm/nightwave-plaza-electron/commit/b99b4e64064c033000b42b2b3532ce5c42e296b0))
+
 ## [0.4.2-alpha](https://github.com/jjoshm/nightwave-plaza-electron/compare/v0.4.1-alpha...v0.4.2-alpha) (2024-03-19)
 
 
